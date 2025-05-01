@@ -1,1 +1,36 @@
+
+
+
 # plan
+- 스케줄 작성
+  
+| 기능 | 메서드 | URL | Request Body | Response Body | Error Response | Response |
+| --- | --- | --- | --- | --- | --- | --- |
+| 글 남기기 | POST | /api/plan | {<br>"writer_id":"String",<br> "password":"String",<br>"title":"String"<br>"content":"String"<br>} | {<br> "plan_id":Long,<br>"writer":"String",<br> "title":"String",<br>"content":"String",<br>"created_at:":"Date"<br>} | • 400 Bad_Request: 잘못된 비밀번호 양식 | • 201 created |
+| 글 삭제 | DELETE | /api/plan/{plan_id} | {<br>"writer_id":"String",<br> "password":"String"<br>} | 삭제되었습니다. | • 401 Unauthorized: 작성자 불일치<br>• 401 Unauthorized: 비밀번호 불일치 | • 200 ok |
+| 글 수정 | PATCH | /api/plan/{plan_id} | {<br>"writer_id":"String",<br>"password":"String",<br>"title":"String",<br>"content":"String"<br>} | {<br>"plan_id":Long,<br>"writer":"String",<br>"title":"String",<br>"content":"String"<br>"updated_at":":"Date"<br>} | • 401 Unauthorized: 작성자 불일치<br>• 401 Unauthorized: 비밀번호 불일치 | • 200 ok |
+| 글 목록 조회 | GET | /api/plan?index=int & writer=writer & title=title & before=yyyy-mm-dd & after=yyyy-mm-dd | - | [<br>{   <br>"plan_id":Long,<br>"writer":"String",<br>"title":"String",<br>"writed_at":"Date",<br> "updated_at:":"Date",<br>"comments_count":Long<br>} <br>...<br>] | • 400 Bad_Request: 잘못된 파라미터 양식<br>• 401 Unauthorized: 작성자 불일치<br>• 401 Unauthorized: 비밀번호 불일치<br>• 404 Not_Fount: 검색 결과 없음 | • 200 ok |
+| 글 조회 | GET | /api/plan/{plan_id} | - | {<br>"plan_Id":Long,<br>"writer":"String",<br>"content":"String",<br>"created_at":":"Date",<br>"updated_at:":"Date",<br> "comments_count":Long,<br>"comments": {comments_ids}<br>} | • 404 Not_Fount: 해당 글 없음 | • 200 ok |
+
+
+- 댓글 작성
+    
+    
+| 기능 | 메서드 | URL | Request Body | Response Body | Error Response | Response |
+| --- | --- | --- | --- | --- | --- | --- |
+| 댓글 남기기 | POST | /api/plan/{plan_id} <br>/comment | { <br>"writer":"String", <br>"password":"String", <br>"comment":"String" <br>} | { <br>"plan_id":Long, <br>"comment_Id":Long, <br>"writer":"String", <br>"comment":"String", <br>"created_at":"Date" <br>} | • 400 Bad Request: 잘못된 비밀번호 양식 | • 201 created |
+| 댓글 삭제 | DELETE | /api/plan/{plan_id} <br>/comment/{comment_id} | { <br>"writer":"String", <br> "password":"String" <br>} | 삭제되었습니다. | • 401 Unauthorized: 작성자 불일치<br>• 401 Unauthorized: 비밀번호 불일치 | • 200 ok |
+| 댓글 수정 | PATCH | /api/plan/plan_id} <br>/comment/{comment_id} | { <br>"writer":"String", <br>"password":"String", <br>"comment":"String" <br>} | { <br> "plan_id":Long, <br>"comment_Id":Long, <br>"writer":"String", <br>"comment":"String", <br>"created_at":"Date", <br> "updated_at:":"Date" <br>} | • 401 Unauthorized: 작성자 불일치 <br>• 401 Unauthorized: 비밀번호 불일치 <br> • 404 Not_Fount: 해당 댓글 없음 | • 200 ok |
+| 댓글 조회 | GET | /api/plan/plan_id} <br>/comment/{comment_id} | - | { <br>"plan_id":Long, <br>"comment_Id":Long, <br>"writer":"String", <br> "comment":"String", <br>"created_at":"Date", <br>"updated_at:":"Date". <br>"replies":{reply_ids"} <br>} | • 404 Not_Fount: 해당 댓글 없음 | • 200 ok |
+- 대댓글 작성
+    
+    
+| 기능 | 메서드 | URL | Request Body | Response Body | Error Response | Response |
+| --- | --- | --- | --- | --- | --- | --- |
+| 대댓글 남기기 | POST | /api/plan/{plan_id} <br>/comment/{comment_id} <br>/reply | { <br>"writer":"String", <br>"password":"String", <br> "reply":"String" <br>} | { <br> "plan_id":Long, <br>"comment_Id":Long, <br> "reply_Id":Long, <br> "writer":"String", <br> "reply":"String", <br>"created_at":":"Date" <br> } | • 400 Bad Request: 잘못된 비밀번호 양식 | • 201 created |
+| 대댓글 삭제 | DELETE | /api/plan/{plan_id} <br>/comment/{comment_id} <br>/reply/{reply_id} | { <br>"writer":"String", <br>"password":"String" <br>} | 삭제되었습니다. | • 401 Unauthorized: 작성자 불일치 <br>• 401 Unauthorized: 비밀번호 불일치 | • 200 ok |
+| 대댓글 수정 | PATCH | /api/plan/{plan_id} <br>/comment/{comment_id} <br>/reply/{reply_id} | { <br> "writer":"String", <br> "password":"String", <br>"reply":"String" <br> } | { <br>"plan_id":Long, <br>"comment_id":Long, <br>"reply_id":Long, <br>"writer":"String", <br>"reply":"String", <br>"created_at":":"Date", <br> "updated_at:":"Date" <br>} | • 401 Unauthorized: 작성자 불일치 <br>• 401 Unauthorized: 비밀번호 불일치 <br> • 404 Not_Fount: 해당 대댓글 없음 | • 200 ok |
+| 대댓글 조회 | GET | /api/plan/{plan_id} <br>/comment/{comment_id <br>}/reply/{reply_id} | - | { <br>"plan_id":Long, <br> "comment_id":Long, <br> "reply_id":Long, <br>"writer":"String", <br>"reply":"String", <br>"created_at":":"Date", <br>"updated_at:":"Date" <br>} | • 404 Not_Fount: 해당 대댓글 없음 | • 200 ok |
+
+### ERD 
+![image](https://github.com/user-attachments/assets/852bb3cf-d2a6-40b9-b5d6-c5a026fc98db)
