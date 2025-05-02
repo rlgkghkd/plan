@@ -17,9 +17,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
 @Entity
 @Table(name = "comments")
+@Getter
 public class Comments extends BaseEntity {
 	@Id
 	@Column(name = "comments_id")

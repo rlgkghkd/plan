@@ -1,24 +1,23 @@
 package com.example.plan.plans.dto;
 
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class CreatePlanRequest {
-	@Size(max = 30)
-	private String writerId;
+public class UpdatePlansRequest {
+	@NotEmpty
+	private String writeId;
+	@NotEmpty
 	private String password;
-	@Size(max = 30)
 	private String title;
-	@Size(max = 255)
 	private String content;
 
 	@Builder
-	public CreatePlanRequest(String writerId, String password, String title, String content) {
-		this.writerId = writerId;
+	public UpdatePlansRequest(String writeId, String password, String title, String content) {
+		this.writeId = writeId;
 		this.password = password;
 		this.title = title;
 		this.content = content;

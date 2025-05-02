@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class CreatePlanResponse {
+public class CreatePlansResponse {
 	private Long planId;
 	private String writerId;
 	private String title;
@@ -18,7 +18,7 @@ public class CreatePlanResponse {
 	private LocalDateTime createdAt;
 
 	@Builder
-	public CreatePlanResponse(Long planId, String writerId, String title, String content, LocalDateTime createdAt) {
+	public CreatePlansResponse(Long planId, String writerId, String title, String content, LocalDateTime createdAt) {
 		this.planId = planId;
 		this.writerId = writerId;
 		this.title = title;
@@ -26,7 +26,7 @@ public class CreatePlanResponse {
 		this.createdAt = createdAt;
 	}
 
-	public CreatePlanResponse(Plans plans){
+	public CreatePlansResponse(Plans plans){
 		this.planId = plans.getId();
 		this.writerId = plans.getWriterId();
 		this.title = plans.getTitle();

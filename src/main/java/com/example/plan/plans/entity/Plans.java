@@ -2,11 +2,9 @@ package com.example.plan.plans.entity;
 
 import java.util.List;
 
-import org.hibernate.annotations.Cascade;
-
 import com.example.plan.comments.entity.Comments;
 import com.example.plan.common.BaseEntity;
-import com.example.plan.plans.dto.CreatePlanRequest;
+import com.example.plan.plans.dto.CreatePlansRequest;
 import com.example.plan.replys.entity.Replies;
 
 import jakarta.persistence.CascadeType;
@@ -19,11 +17,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "plans")
 @Getter
+@NoArgsConstructor
 public class Plans extends BaseEntity {
 	@Id
 	@Column(name = "plans_id")
@@ -49,12 +50,28 @@ public class Plans extends BaseEntity {
 	private List<Replies> replies;
 
 	@Transient
-	private Long commentCount;
+	private int commentCount;
 
-	public Plans(CreatePlanRequest request) {
+	@Builder
+	public Plans(String writerId, String password, String title, String content) {
+		this.writerId = writerId;
+		this.password = password;
+		this.title = title;
+		this.content = content;
+	}
+
+	public Plans(CreatePlansRequest request) {
 		this.writerId = request.getWriterId();
 		this.password = request.getPassword();
 		this.title = request.getTitle();
 		this.content = request.getContent();
+	}
+
+	public void updateCount(){this.commentCount = comments.size() + replies.size();}
+	public void changeTitle(String title){
+		this.title = title;
+	}
+	public void chageContent(String content){
+		this.content = content;
 	}
 }
