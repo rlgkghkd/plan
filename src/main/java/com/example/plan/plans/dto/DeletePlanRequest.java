@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeletePlansRequest {
+public class DeletePlanRequest {
 	@NotEmpty
 	private String password;
 }
