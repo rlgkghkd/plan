@@ -32,7 +32,7 @@ public class Plan extends BaseEntity {
 	private Long Id;
 
 	@Size(max = 30)
-	private String writer;
+	private String writerId;
 
 	private String password;
 
@@ -52,21 +52,21 @@ public class Plan extends BaseEntity {
 	private List<Reply> replies;
 
 	@Builder
-	public Plan(String writer, String password, String title, String content) {
-		this.writer = writer;
+	public Plan(String writerId, String password, String title, String content) {
+		this.writerId = writerId;
 		this.password = password;
 		this.title = title;
 		this.content = content;
 	}
 
 	public Plan(PostPlanRequest request) {
-		this.writer = request.getWriter();
+		this.writerId = request.getWriterId();
 		this.password = request.getPassword();
 		this.title = request.getTitle();
 		this.content = request.getContent();
 	}
 
-	public void updateCount(int commentCount){this.commentCount = commentCount;}
+	public void updateCount(){this.commentCount = comments.size() + replies.size();}
 	public void changeTitle(String title){
 		this.title = title;
 	}

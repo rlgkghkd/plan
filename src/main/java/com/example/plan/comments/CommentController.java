@@ -48,9 +48,4 @@ public class CommentController {
 	public ResponseEntity<GetCommentResponse> getComment(@PathVariable Long commentId){
 		return ResponseEntity.ok().body(commentService.getComment(commentId));
 	}
-
-	@GetMapping("/{commentId}")
-	public ResponseEntity<Long> getParentPlanId(@PathVariable Long commentId){
-		return ResponseEntity.ok().body(commentService.getParentPlanId(commentId));
-	}
 }

@@ -19,7 +19,7 @@ public class PlanApplication {
 			.content("testContent1")
 			.title("testTitle1")
 			.password("testPassword1")
-			.writerId("testId1")
+			.writerId("tester1")
 			.build();
 		repository.save(plan);
 		System.out.println("result = " + repository.findPlanById(1L).getTitle());

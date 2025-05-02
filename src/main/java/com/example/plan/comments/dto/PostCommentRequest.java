@@ -12,15 +12,15 @@ public class PostCommentRequest {
 
 	@Size(max = 30)
 	@NotEmpty
-	private String writer;
+	private String writerId;
 	@NotEmpty
 	private String password;
 	@Size(max = 255)
 	private String contents;
 
 	@Builder
-	public PostCommentRequest(String writer, String password, String contents) {
-		this.writer = writer;
+	public PostCommentRequest(String writerId, String password, String contents) {
+		this.writerId = writerId;
 		this.password = password;
 		this.contents = contents;
 	}

@@ -29,7 +29,7 @@ public class Reply extends BaseEntity {
 	private Long id;
 
 	@Size(max = 30)
-	private String writer;
+	private String writerId;
 	private String password;
 
 	@Size(max = 255)
@@ -44,8 +44,8 @@ public class Reply extends BaseEntity {
 	private Comment comment;
 
 	@Builder
-	public Reply(String writer, String password, String contents, Plan plan, Comment comment) {
-		this.writer = writer;
+	public Reply(String writerId, String password, String contents, Plan plan, Comment comment) {
+		this.writerId = writerId;
 		this.password = password;
 		this.contents = contents;
 		this.plan = plan;
@@ -53,7 +53,7 @@ public class Reply extends BaseEntity {
 	}
 
 	public Reply(PostReplyRequest request, Plan plan, Comment comment){
-		this.writer = request.getWriter();
+		this.writerId = request.getWriterId();
 		this.password = request.getPassword();
 		this.contents = request.getContent();
 		this.plan = plan;

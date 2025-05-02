@@ -51,13 +51,13 @@ public class PlanController {
 	@GetMapping
 	public ResponseEntity<List<GetPlanListResponse>> getPlanPage(
 		@RequestParam(name = "index", defaultValue = "1", required = false) int index,
-		@RequestParam(name = "writer", required = false) String writer,
+		@RequestParam(name = "writerId", required = false) String writerId,
 		@RequestParam(name = "before", required = false) String before,
 		@RequestParam(name = "after", required = false) String after) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDateTime afterDate = after==null || after.isEmpty()?null:formatter.parse(after, LocalDateTime::from);
 		LocalDateTime beforeDate = before==null || before.isEmpty()?null:formatter.parse(before, LocalDateTime::from);
-		return ResponseEntity.ok().body(planService.getPlanList(index, writer, afterDate, beforeDate));
+		return ResponseEntity.ok().body(planService.getPlanList(index, writerId, afterDate, beforeDate));
 	}
 
 	@GetMapping("/{planId}")

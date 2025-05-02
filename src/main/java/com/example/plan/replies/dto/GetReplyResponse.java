@@ -14,18 +14,18 @@ public class GetReplyResponse {
 	private Long planId;
 	private Long commentId;
 	private Long replyId;
-	private String writer;
+	private String writerId;
 	private String content;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public GetReplyResponse(Long planId, Long commentId, Long replyId, String writer, String content,
+	public GetReplyResponse(Long planId, Long commentId, Long replyId, String writerId, String content,
 		LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.planId = planId;
 		this.commentId = commentId;
 		this.replyId = replyId;
-		this.writer = writer;
+		this.writerId = writerId;
 		this.content = content;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
@@ -35,7 +35,7 @@ public class GetReplyResponse {
 		this.planId = reply.getPlan().getId();
 		this.commentId = reply.getComment().getId();
 		this.replyId = reply.getId();
-		this.writer = reply.getWriter();
+		this.writerId = reply.getWriterId();
 		this.content = reply.getContents();
 		this.createdAt = reply.getCreatedAt();
 		this.updatedAt = reply.getUpdatedAt();

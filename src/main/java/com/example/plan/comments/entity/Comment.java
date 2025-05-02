@@ -31,7 +31,7 @@ public class Comment extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String writer;
+	private String writerId;
 
 	private String password;
 
@@ -45,9 +45,9 @@ public class Comment extends BaseEntity {
 	private Plan plan;
 
 	@Builder
-	public Comment(Long id, String writer, String password, String contents, List<Reply> replies, Plan plan) {
+	public Comment(Long id, String writerId, String password, String contents, List<Reply> replies, Plan plan) {
 		this.id = id;
-		this.writer = writer;
+		this.writerId = writerId;
 		this.password = password;
 		this.contents = contents;
 		this.replies = replies;
@@ -55,7 +55,7 @@ public class Comment extends BaseEntity {
 	}
 
 	public Comment(PostCommentRequest request, Plan plan) {
-		this.writer = request.getWriter();
+		this.writerId = request.getWriterId();
 		this.password = request.getPassword();
 		this.contents = request.getContents();
 		this.plan = plan;

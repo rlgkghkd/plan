@@ -51,15 +51,16 @@ public class PlanService {
 		return new UpdatePlanResponse(plan);
 	}
 
-	public List<GetPlanListResponse> getPlanList(int index, String writer, LocalDateTime before, LocalDateTime after){
-		List<Plan> planList = planRepository.getPlanList(writer, before, after);
+	public List<GetPlanListResponse> getPlanList(int index, String writerId, LocalDateTime before, LocalDateTime after){
+		List<Plan> planList = planRepository.getPlanList(writerId, before, after);
 		int start = planList.size() >(index-1)*10?(index-1)*10:0;
-		List<GetPlanListResponse> list = planList.stream().map(GetPlanListResponse::new).skip(start).limit(10).toList();
+		List<GetPlanListResponse> list = planList.stream().peek(Plan::updateCount).map(GetPlanListResponse::new).skip(start).limit(10).toList();
 		return list;
 	}
 
 	public GetPlanResponse getPlan(Long planId) {
 		Plan plan = planRepository.findPlanById(planId);
+		plan.updateCount();
 		return new GetPlanResponse(plan);
 	}
 

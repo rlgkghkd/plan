@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class PostPlanRequest {
 	@Size(max = 30)
 	@NotEmpty
-	private String writer;
+	private String writerId;
 	@NotEmpty
 	private String password;
 	@Size(max = 30)
@@ -21,8 +21,8 @@ public class PostPlanRequest {
 	private String content;
 
 	@Builder
-	public PostPlanRequest(String writer, String password, String title, String content) {
-		this.writer = writer;
+	public PostPlanRequest(String writerId, String password, String title, String content) {
+		this.writerId = writerId;
 		this.password = password;
 		this.title = title;
 		this.content = content;

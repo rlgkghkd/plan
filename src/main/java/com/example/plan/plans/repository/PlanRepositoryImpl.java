@@ -21,12 +21,12 @@ public class PlanRepositoryImpl implements PlanRepositoryCustom {
 	}
 
 	@Override
-	public List<Plan> getPlanList(String writer, LocalDateTime before, LocalDateTime after) {
+	public List<Plan> getPlanList(String writerId, LocalDateTime before, LocalDateTime after) {
 		return queryFactory.selectFrom(QPlan.plan)
 			.where(
 				before != null ? QPlan.plan.createdAt.before(before) : null,
 				after != null ? QPlan.plan.createdAt.after(after) : null,
-				writer != null ? QPlan.plan.writerId.like(writer) : null
+				writerId != null ? QPlan.plan.writerId.like(writerId) : null
 			)
 			.fetch();
 	}

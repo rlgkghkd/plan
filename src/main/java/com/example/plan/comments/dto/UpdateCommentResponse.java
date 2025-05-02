@@ -13,16 +13,16 @@ import lombok.NoArgsConstructor;
 public class UpdateCommentResponse {
 
 	private Long commentId;
-	private String writer;
+	private String writerId;
 	private String contents;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public UpdateCommentResponse(Long commentId, String writer, String contents, LocalDateTime createdAt,
+	public UpdateCommentResponse(Long commentId, String writerId, String contents, LocalDateTime createdAt,
 		LocalDateTime updatedAt) {
 		this.commentId = commentId;
-		this.writer = writer;
+		this.writerId = writerId;
 		this.contents = contents;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
@@ -30,7 +30,7 @@ public class UpdateCommentResponse {
 
 	public UpdateCommentResponse(Comment comment) {
 		this.commentId = comment.getId();
-		this.writer = comment.getWriter();
+		this.writerId = comment.getWriterId();
 		this.contents = comment.getContents();
 		this.createdAt = comment.getCreatedAt();
 		this.updatedAt = comment.getUpdatedAt();

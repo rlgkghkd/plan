@@ -7,5 +7,5 @@ import com.example.plan.plans.entity.Plan;
 
 public interface PlanRepositoryCustom {
 	Plan findPlanById(Long id);
-	List<Plan> getPlanList(String writer, LocalDateTime before, LocalDateTime after);
+	List<Plan> getPlanList(String writerId, LocalDateTime before, LocalDateTime after);
 }

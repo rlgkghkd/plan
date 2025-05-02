@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdatePlanResponse {
 	private Long planId;
-	private String write;
+	private String writeId;
 	private String title;
 	private String content;
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public UpdatePlanResponse(Long planId, String write, String title, String content,
+	public UpdatePlanResponse(Long planId, String writeId, String title, String content,
 		LocalDateTime updatedAt) {
 		this.planId = planId;
-		this.write = write;
+		this.writeId = writeId;
 		this.title = title;
 		this.content = content;
 		this.updatedAt = updatedAt;
@@ -29,7 +29,7 @@ public class UpdatePlanResponse {
 
 	public UpdatePlanResponse(Plan plan) {
 		this.planId = plan.getId();
-		this.write = plan.getWriter();
+		this.writeId = plan.getWriterId();
 		this.title = plan.getTitle();
 		this.content = plan.getContent();
 		this.updatedAt = plan.getUpdatedAt();

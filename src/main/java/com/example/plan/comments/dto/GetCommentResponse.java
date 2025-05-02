@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class GetCommentResponse {
 	private Long planId;
 	private Long commentId;
-	private String writer;
+	private String writerId;
 	private String contents;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
@@ -26,7 +26,7 @@ public class GetCommentResponse {
 		LocalDateTime updatedAt, List<Reply> replies) {
 		this.planId = planId;
 		this.commentId = commentId;
-		this.writer = writerId;
+		this.writerId = writerId;
 		this.contents = contents;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
@@ -36,7 +36,7 @@ public class GetCommentResponse {
 	public GetCommentResponse(Comment comment) {
 		this.planId = comment.getPlan().getId();
 		this.commentId = comment.getId();
-		this.writer = comment.getWriter();
+		this.writerId = comment.getWriterId();
 		this.contents = comment.getContents();
 		this.createdAt = comment.getCreatedAt();
 		this.updatedAt = comment.getUpdatedAt();

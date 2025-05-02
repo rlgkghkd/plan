@@ -33,6 +33,7 @@ public class CommentService {
 
 	public void deleteComment(DeleteCommentRequest request, Long commentId) {
 		Comment comment = commentRepository.findCommentById(commentId);
+		Plan plan = comment.getPlan();
 		if(!comment.getPassword().equals(request.getPassword())){
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다.");
 		}
@@ -49,11 +50,6 @@ public class CommentService {
 
 	public GetCommentResponse getComment(Long commentId) {
 		return new GetCommentResponse(commentRepository.findCommentById(commentId));
-	}
-
-	public Long getParentPlanId(Long commentId) {
-		Comment comment = commentRepository.findCommentById(commentId);
-		return comment.getPlan().getId();
 	}
 
 	//for other service
