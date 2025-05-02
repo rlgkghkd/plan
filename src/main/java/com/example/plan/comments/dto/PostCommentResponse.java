@@ -11,13 +11,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class PostCommentResponse {
+	private Long planId;
 	private Long commentId;
 	private String writer;
 	private String contents;
 	private LocalDateTime createdAt;
 
 	@Builder
-	public PostCommentResponse(Long commentId, String writer, String contents, LocalDateTime createdAt) {
+	public PostCommentResponse(Long planId, Long commentId, String writer, String contents, LocalDateTime createdAt) {
+		this.planId = planId;
 		this.commentId = commentId;
 		this.writer = writer;
 		this.contents = contents;
@@ -25,6 +27,7 @@ public class PostCommentResponse {
 	}
 
 	public PostCommentResponse(Comment comment) {
+		this.planId = comment.getPlan().getId();
 		this.commentId = comment.getId();
 		this.writer = comment.getWriter();
 		this.contents = comment.getContents();

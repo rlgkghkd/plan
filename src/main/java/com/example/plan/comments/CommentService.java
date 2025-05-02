@@ -55,4 +55,9 @@ public class CommentService {
 		Comment comment = commentRepository.findCommentById(commentId);
 		return comment.getPlan().getId();
 	}
+
+	//for other service
+	public Comment findComment(Long commentId){
+		return commentRepository.getReferenceById(commentId);
+	}
 }
