@@ -53,5 +53,36 @@
 ![image](https://github.com/user-attachments/assets/15c2fcea-47b7-471f-81f7-d37f1594187f)
 
 ### 동작 캡쳐
+---
+#### plan
+![image](https://github.com/user-attachments/assets/d35e7685-9b0d-4dc0-8073-b144b3e956f2)
+![image](https://github.com/user-attachments/assets/3123e3c2-da19-4a73-823c-ee62d787d6ba)
+![image](https://github.com/user-attachments/assets/3515f1c1-8108-4fd2-981d-0f1aba41a5de)
+![image](https://github.com/user-attachments/assets/973ca44c-2865-4e11-8e5c-81c1900cf238)
+![image](https://github.com/user-attachments/assets/e3404217-b571-4262-8bdf-0c181d1a3b0c)
 
-### 스택
+---
+
+#### comment(댓글)
+![image](https://github.com/user-attachments/assets/62a5d11d-52d4-4d38-af9d-cb5c5106ef0d)
+![image](https://github.com/user-attachments/assets/f67edbe3-89f3-4133-aef2-0e2716ff4e6f)
+![image](https://github.com/user-attachments/assets/e196e771-2df0-44a4-b51d-68deb1d1dc43)
+![image](https://github.com/user-attachments/assets/e8264d31-4958-4b0b-b2f4-4851281a4c50)
+
+---
+
+#### reply(대댓글)
+![image](https://github.com/user-attachments/assets/6ca6ac2b-213f-47c5-9fe4-493e0fccb0a3)
+![image](https://github.com/user-attachments/assets/42efdf26-ac0c-475a-bc8a-5dcd67feb1df)
+![image](https://github.com/user-attachments/assets/4611535b-b64a-4771-b1ad-4cd5fa9f5254)
+![image](https://github.com/user-attachments/assets/c0fdab88-a354-48ac-9cc1-849941efabf6)
+
+---
+
+## 스택
+![image](https://github.com/user-attachments/assets/c1c8d3e9-42ef-418a-a945-4a1f519a893a)
+![image](https://github.com/user-attachments/assets/2683a873-7199-4dde-8aca-f68dfdce75bb)
+![image](https://github.com/user-attachments/assets/add58077-426b-4719-811a-9a605b4a5667)
+![image](https://github.com/user-attachments/assets/ee9b7267-5458-4ac7-b6bf-b388007f816c)
+![image](https://github.com/user-attachments/assets/73d52a7c-fbd9-45fe-9be9-68fd01351824)
+
