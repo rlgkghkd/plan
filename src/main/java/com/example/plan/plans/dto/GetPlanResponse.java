@@ -1,7 +1,11 @@
 package com.example.plan.plans.dto;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.List;
 
+import com.example.plan.comments.dto.SimpleCommentResponse;
+import com.example.plan.comments.entity.Comment;
 import com.example.plan.plans.entity.Plan;
 
 import lombok.Builder;
@@ -18,10 +22,12 @@ public class GetPlanResponse {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 	private int commentsCount;
+	private List<SimpleCommentResponse> commentResponses;
+	private List<Comment> comments;
 
 	@Builder
 	public GetPlanResponse(Long planId, String writerId, String title, String content, LocalDateTime createdAt,
-		LocalDateTime updatedAt, int commentsCount) {
+		LocalDateTime updatedAt, int commentsCount, List<SimpleCommentResponse> commentResponses) {
 		this.planId = planId;
 		this.writerId = writerId;
 		this.title = title;
@@ -29,6 +35,7 @@ public class GetPlanResponse {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 		this.commentsCount = commentsCount;
+		this.commentResponses = commentResponses;
 	}
 
 	public GetPlanResponse(Plan plan) {
@@ -39,5 +46,7 @@ public class GetPlanResponse {
 		this.createdAt = plan.getCreatedAt();
 		this.updatedAt = plan.getUpdatedAt();
 		this.commentsCount = plan.getCommentCount();
+		this.commentResponses = plan.getComments().stream().map(SimpleCommentResponse::new).sorted(Comparator.comparing(SimpleCommentResponse::getCreatedAt)).toList();
+		this.comments = plan.getComments();
 	}
 }

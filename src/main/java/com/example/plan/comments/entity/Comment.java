@@ -45,8 +45,7 @@ public class Comment extends BaseEntity {
 	private Plan plan;
 
 	@Builder
-	public Comment(Long id, String writerId, String password, String contents, List<Reply> replies, Plan plan) {
-		this.id = id;
+	public Comment(String writerId, String password, String contents, List<Reply> replies, Plan plan) {
 		this.writerId = writerId;
 		this.password = password;
 		this.contents = contents;

@@ -11,8 +11,10 @@ import com.example.plan.plans.PlanService;
 import com.example.plan.plans.entity.Plan;
 import com.example.plan.replies.dto.DeleteReplyRequest;
 import com.example.plan.replies.dto.GetReplyResponse;
+import com.example.plan.replies.dto.JustACommentResponse;
 import com.example.plan.replies.dto.PostReplyRequest;
 import com.example.plan.replies.dto.PostReplyResponse;
+import com.example.plan.replies.dto.SimpleReplyResponse;
 import com.example.plan.replies.dto.UpdateReplyRequest;
 import com.example.plan.replies.dto.UpdateReplyResponse;
 import com.example.plan.replies.entity.Reply;
@@ -49,7 +51,9 @@ public class ReplyService {
 		return new UpdateReplyResponse(reply);
 	}
 
-	public GetReplyResponse getReply(Long replyId) {
-		return new GetReplyResponse(replyRepository.findReplyById(replyId));
+	public JustACommentResponse getReply(Long replyId) {
+		Reply reply = replyRepository.findReplyById(replyId);
+		Comment comment = reply.getComment();
+		return new JustACommentResponse(comment, new SimpleReplyResponse(reply));
 	}
 }

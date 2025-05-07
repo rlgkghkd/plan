@@ -70,7 +70,7 @@ public class Plan extends BaseEntity {
 	public void changeTitle(String title){
 		this.title = title;
 	}
-	public void chageContent(String content){
+	public void changeContent(String content){
 		this.content = content;
 	}
 }

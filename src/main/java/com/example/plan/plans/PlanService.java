@@ -47,7 +47,7 @@ public class PlanService {
 		if (!request.getTitle().isEmpty()){
 			plan.changeTitle(request.getTitle());}
 		if (!request.getContent().isEmpty()){
-			plan.chageContent(request.getContent());}
+			plan.changeContent(request.getContent());}
 		return new UpdatePlanResponse(plan);
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.plan.replies.dto.DeleteReplyRequest;
 import com.example.plan.replies.dto.GetReplyResponse;
+import com.example.plan.replies.dto.JustACommentResponse;
 import com.example.plan.replies.dto.PostReplyRequest;
 import com.example.plan.replies.dto.PostReplyResponse;
 import com.example.plan.replies.dto.UpdateReplyRequest;
@@ -47,7 +48,7 @@ public class ReplyController {
 	}
 
 	@GetMapping("/{replyId}")
-	public ResponseEntity<GetReplyResponse> getReply(@PathVariable Long replyId){
+	public ResponseEntity<JustACommentResponse> getReply(@PathVariable Long replyId){
 		return ResponseEntity.ok().body(replyService.getReply(replyId));
 	}
 }
