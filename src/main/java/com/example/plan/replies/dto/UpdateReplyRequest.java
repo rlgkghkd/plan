@@ -14,11 +14,11 @@ public class UpdateReplyRequest {
 	private String password;
 	@NotNull
 	@Size(max = 255)
-	private String content;
+	private String contents;
 
 	@Builder
-	public UpdateReplyRequest(String password, String content) {
+	public UpdateReplyRequest(String password, String contents) {
 		this.password = password;
-		this.content = content;
+		this.contents = contents;
 	}
 }

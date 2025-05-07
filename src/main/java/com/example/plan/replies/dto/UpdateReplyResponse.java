@@ -13,16 +13,16 @@ import lombok.NoArgsConstructor;
 public class UpdateReplyResponse {
 	private Long replyId;
 	private String writerId;
-	private String content;
+	private String contents;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public UpdateReplyResponse(Long replyId, String writerId, String content, LocalDateTime createdAt,
+	public UpdateReplyResponse(Long replyId, String writerId, String contents, LocalDateTime createdAt,
 		LocalDateTime updatedAt) {
 		this.replyId = replyId;
 		this.writerId = writerId;
-		this.content = content;
+		this.contents = contents;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
@@ -30,7 +30,7 @@ public class UpdateReplyResponse {
 	public UpdateReplyResponse(Reply reply) {
 		this.replyId = reply.getId();
 		this.writerId = reply.getWriterId();
-		this.content = reply.getContents();
+		this.contents = reply.getContents();
 		this.createdAt = reply.getCreatedAt();
 		this.updatedAt = reply.getUpdatedAt();
 	}

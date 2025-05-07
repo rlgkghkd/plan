@@ -1,6 +1,7 @@
 package com.example.plan.comments.dto;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 
 import com.example.plan.comments.entity.Comment;
@@ -41,6 +42,6 @@ public class GetCommentResponse {
 		this.contents = comment.getContents();
 		this.createdAt = comment.getCreatedAt();
 		this.updatedAt = comment.getUpdatedAt();
-		this.replies = comment.getReplies().stream().map(SimpleReplyResponse::new).toList();
+		this.replies = comment.getReplies().stream().map(SimpleReplyResponse::new).sorted(Comparator.comparing(SimpleReplyResponse::getCreatedAt)).toList();
 	}
 }

@@ -3,6 +3,7 @@ package com.example.plan.replies.dto;
 import java.time.LocalDateTime;
 
 import com.example.plan.comments.entity.Comment;
+import com.example.plan.replies.entity.Reply;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -15,11 +16,11 @@ public class JustACommentResponse {
 	private String content;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
-	private SimpleReplyResponse replyResponses;
+	private GetReplyResponse replyResponses;
 
 	@Builder
 	public JustACommentResponse(String writerId, String content, LocalDateTime createdAt, LocalDateTime updatedAt,
-		SimpleReplyResponse replyResponses) {
+		GetReplyResponse replyResponses) {
 		this.writerId = writerId;
 		this.content = content;
 		this.createdAt = createdAt;
@@ -27,12 +28,12 @@ public class JustACommentResponse {
 		this.replyResponses = replyResponses;
 	}
 
-	public JustACommentResponse(Comment comment, SimpleReplyResponse replyResponses) {
+	public JustACommentResponse(Comment comment, Reply reply) {
 		this.writerId = comment.getWriterId();
 		this.content = comment.getContents();
 		this.createdAt = comment.getCreatedAt();
 		this.updatedAt = comment.getUpdatedAt();
-		this.replyResponses = replyResponses;
+		this.replyResponses = new GetReplyResponse(reply);
 
 	}
 }

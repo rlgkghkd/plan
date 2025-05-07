@@ -13,15 +13,16 @@ public class PostReplyRequest {
 	@NotEmpty
 	@Size(max = 30)
 	private String writerId;
+	@NotEmpty
 	private String password;
 	@NotEmpty
 	@Size(max = 30)
-	private String content;
+	private String contents;
 
 	@Builder
-	public PostReplyRequest(String writerId, String password, String content) {
+	public PostReplyRequest(String writerId, String password, String contents) {
 		this.writerId = writerId;
 		this.password = password;
-		this.content = content;
+		this.contents = contents;
 	}
 }

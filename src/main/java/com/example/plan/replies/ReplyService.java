@@ -47,13 +47,13 @@ public class ReplyService {
 	public UpdateReplyResponse updateReply(UpdateReplyRequest request, Long replyId) {
 		Reply reply = replyRepository.findReplyById(replyId);
 		if (!reply.getPassword().equals(request.getPassword())){throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다.");}
-		reply.updateContents(request.getContent());
+		reply.updateContents(request.getContents());
 		return new UpdateReplyResponse(reply);
 	}
 
 	public JustACommentResponse getReply(Long replyId) {
 		Reply reply = replyRepository.findReplyById(replyId);
 		Comment comment = reply.getComment();
-		return new JustACommentResponse(comment, new SimpleReplyResponse(reply));
+		return new JustACommentResponse(comment, reply);
 	}
 }

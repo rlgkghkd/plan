@@ -15,17 +15,17 @@ public class PostReplyResponse {
 	private Long commentId;
 	private Long replyId;
 	private String writerId;
-	private String content;
+	private String contents;
 	private LocalDateTime createdAt;
 
 	@Builder
-	public PostReplyResponse(Long planId, Long commentId, Long replyId, String writerId, String content,
+	public PostReplyResponse(Long planId, Long commentId, Long replyId, String writerId, String contents,
 		LocalDateTime createdAt) {
 		this.planId = planId;
 		this.commentId = commentId;
 		this.replyId = replyId;
 		this.writerId = writerId;
-		this.content = content;
+		this.contents = contents;
 		this.createdAt = createdAt;
 	}
 
@@ -34,7 +34,7 @@ public class PostReplyResponse {
 		this.commentId = reply.getComment().getId();
 		this.replyId = reply.getId();
 		this.writerId = reply.getWriterId();
-		this.content = reply.getContents();
+		this.contents = reply.getContents();
 		this.createdAt = reply.getCreatedAt();
 	}
 }

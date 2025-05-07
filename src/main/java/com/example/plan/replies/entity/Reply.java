@@ -30,6 +30,7 @@ public class Reply extends BaseEntity {
 
 	@Size(max = 30)
 	private String writerId;
+
 	private String password;
 
 	@Size(max = 255)
@@ -55,7 +56,7 @@ public class Reply extends BaseEntity {
 	public Reply(PostReplyRequest request, Plan plan, Comment comment){
 		this.writerId = request.getWriterId();
 		this.password = request.getPassword();
-		this.contents = request.getContent();
+		this.contents = request.getContents();
 		this.plan = plan;
 		this.comment = comment;
 	}

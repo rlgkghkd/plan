@@ -33,7 +33,8 @@ public class ReplyController {
 		@RequestBody PostReplyRequest request,
 		@PathVariable Long planId,
 		@PathVariable Long commentId) {
-		return ResponseEntity.created(URI.create("/api/plan/{planId}/comment/{commentId}/reply/created")).body(replyService.postReply(request, planId, commentId));
+		String uri = "/api/plan/" + planId + "/comment/" + commentId + "/reply/created";
+		return ResponseEntity.created(URI.create(uri)).body(replyService.postReply(request, planId, commentId));
 	}
 
 	@DeleteMapping("/{replyId}")
