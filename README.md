@@ -33,4 +33,5 @@
 | 대댓글 조회 | GET | /api/plan/{plan_id} <br>/comment/{comment_id <br>}/reply/{reply_id} | -                                                                                  | {<br>"writer_Id":"String", <br> "comment":"String", <br>"created_at":"Date", <br>"updated_at:":"Date". <br>"reply":<br>{ <br>"plan_id":Long, <br> "comment_id":Long, <br> "reply_id":Long, <br>"writer_Id":"String", <br>"reply":"String", <br>"created_at":":"Date", <br>"updated_at:":"Date" <br>}<br>} | • 404 Not_Fount: 해당 대댓글 없음 | • 200 ok |
 
 ### ERD 
-![image](https://github.com/user-attachments/assets/852bb3cf-d2a6-40b9-b5d6-c5a026fc98db)
+![image](https://github.com/user-attachments/assets/15c2fcea-47b7-471f-81f7-d37f1594187f)
+
