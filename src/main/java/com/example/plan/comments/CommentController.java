@@ -26,11 +26,12 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/plan/{planId}/comment")
 public class CommentController {
 
-	private CommentService commentService;
+	private final CommentService commentService;
 
 	@PostMapping
 	public ResponseEntity<PostCommentResponse> postComment(@RequestBody PostCommentRequest request, @PathVariable Long planId){
-		return ResponseEntity.created(URI.create("/api/plan/{planId}/comment/created")).body(commentService.postComment(request, planId));
+		String uri = "/api/plan/" + planId + "/comment/created";
+		return ResponseEntity.created(URI.create(uri)).body(commentService.postComment(request, planId));
 	}
 
 	@DeleteMapping("/{commentId}")

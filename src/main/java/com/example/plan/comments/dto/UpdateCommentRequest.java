@@ -11,11 +11,11 @@ public class UpdateCommentRequest {
 	@NotEmpty
 	private String password;
 	@NotEmpty
-	private String content;
+	private String contents;
 
 	@Builder
-	public UpdateCommentRequest(String password, String content) {
+	public UpdateCommentRequest(String password, String contents) {
 		this.password = password;
-		this.content = content;
+		this.contents = contents;
 	}
 }

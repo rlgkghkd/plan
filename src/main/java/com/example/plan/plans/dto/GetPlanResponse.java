@@ -23,7 +23,6 @@ public class GetPlanResponse {
 	private LocalDateTime updatedAt;
 	private int commentsCount;
 	private List<SimpleCommentResponse> commentResponses;
-	private List<Comment> comments;
 
 	@Builder
 	public GetPlanResponse(Long planId, String writerId, String title, String content, LocalDateTime createdAt,
@@ -47,6 +46,5 @@ public class GetPlanResponse {
 		this.updatedAt = plan.getUpdatedAt();
 		this.commentsCount = plan.getCommentCount();
 		this.commentResponses = plan.getComments().stream().map(SimpleCommentResponse::new).sorted(Comparator.comparing(SimpleCommentResponse::getCreatedAt)).toList();
-		this.comments = plan.getComments();
 	}
 }

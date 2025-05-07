@@ -22,8 +22,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CommentService {
 
-	private CommentRepository commentRepository;
-	private PlanService planService;
+	private final CommentRepository commentRepository;
+	private final PlanService planService;
 
 	public PostCommentResponse postComment(PostCommentRequest request, Long planId) {
 		Plan plan = planService.findPlan(planId);
@@ -44,7 +44,7 @@ public class CommentService {
 	public UpdateCommentResponse updateComment(UpdateCommentRequest request, Long commentId) {
 		Comment comment = commentRepository.findCommentById(commentId);
 		if (!comment.getPassword().equals(request.getPassword())){throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다.");}
-		comment.changeContents(request.getContent());
+		comment.changeContents(request.getContents());
 		return new UpdateCommentResponse(comment);
 	}
 

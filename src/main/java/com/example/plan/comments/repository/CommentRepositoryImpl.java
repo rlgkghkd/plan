@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class CommentRepositoryImpl implements CommentRepositoryCustom{
-	private JPAQueryFactory queryFactory;
+	private final JPAQueryFactory queryFactory;
 
 	@Override
 	public Comment findCommentById(Long commentId) {

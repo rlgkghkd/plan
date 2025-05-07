@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.example.plan.comments.entity.Comment;
+import com.example.plan.replies.dto.SimpleReplyResponse;
 import com.example.plan.replies.entity.Reply;
 
 import lombok.Builder;
@@ -19,11 +20,11 @@ public class GetCommentResponse {
 	private String contents;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
-	private List<Reply> replies;
+	private List<SimpleReplyResponse> replies;
 
 	@Builder
 	public GetCommentResponse(Long planId, Long commentId, String writerId, String contents, LocalDateTime createdAt,
-		LocalDateTime updatedAt, List<Reply> replies) {
+		LocalDateTime updatedAt, List<SimpleReplyResponse> replies) {
 		this.planId = planId;
 		this.commentId = commentId;
 		this.writerId = writerId;
@@ -40,6 +41,6 @@ public class GetCommentResponse {
 		this.contents = comment.getContents();
 		this.createdAt = comment.getCreatedAt();
 		this.updatedAt = comment.getUpdatedAt();
-		this.replies = comment.getReplies();
+		this.replies = comment.getReplies().stream().map(SimpleReplyResponse::new).toList();
 	}
 }

@@ -8,6 +8,8 @@ import com.example.plan.comments.entity.Comment;
 import com.example.plan.comments.repository.CommentRepository;
 import com.example.plan.plans.entity.Plan;
 import com.example.plan.plans.repository.PlanRepository;
+import com.example.plan.replies.entity.Reply;
+import com.example.plan.replies.repository.ReplyRepository;
 
 @EnableJpaAuditing
 @SpringBootApplication
@@ -18,6 +20,7 @@ public class PlanApplication {
 		var context = SpringApplication.run(PlanApplication.class, args);
 		var repository = context.getBean(PlanRepository.class);
 		var commentRepo = context.getBean(CommentRepository.class);
+		var repRepo = context.getBean(ReplyRepository.class);
 		Plan plan = Plan.builder()
 			.content("testContent1")
 			.title("testTitle1")
@@ -31,8 +34,14 @@ public class PlanApplication {
 			.plan(plan)
 			.writerId("testWriter")
 			.build();
+		Reply reply = Reply.builder()
+			.comment(comment)
+			.contents("testRe")
+			.password("testPassword")
+			.plan(plan)
+			.writerId("tester")
+			.build();
 		commentRepo.save(comment);
-		System.out.println("result = " + repository.findPlanById(1L).getTitle());
-		System.out.println("result = " + repository.getPlanList(null, null, null).get(0).getTitle());
+		repRepo.save(reply);
 	}
 }
